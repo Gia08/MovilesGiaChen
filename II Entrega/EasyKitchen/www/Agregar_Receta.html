@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta http-equiv="Access-Control-Allow-Origin" content="*">
+
+    <title>EasyKitchen App</title>
+    <script type="text/javascript" src="js/index.js"></script>
+    <!-- Bootstrap Core CSS -->
+
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/thumbnail-gallery.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+    <![endif]-->
+
+</head>
+
+<body style="background-color:#f75e5e" onload="nobackbutton()">
+
+    <!-- Navigation -->
+    <nav class=" navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="Lista_Recetas.html">EasyKitchen App</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="Lista_Recetas.html">Recetas</a>
+                </li>
+                <li>
+                    <a href="Perfil.html">Perfil</a>
+                </li>
+                <li>
+                    <a href="Buscar.html">Buscar</a>
+                </li>
+                <li>
+                    <a href="LoginFacebook.html">Salir</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+    <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Agregar Receta</h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-5"><input id="nameRecipeId" type="text" class="form-control" placeholder="Nombre de la receta"></div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="row">
+            <div class="col-md-5"><input id="descriptionRecipeId" type="text" class="form-control" placeholder="Descripcion de la receta"></div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="row">
+            <div class="col-md-5"><input id="durationRecipeId" type="text" class="form-control" placeholder="Duracion de la receta"></div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="row">
+            <div class="col-md-5"><input id="TagsRecipeId" type="text" class="form-control" placeholder="Etiquetas"></div>
+        </div>
+        <p>&nbsp;</p>
+        <p>Nivel de dificultad:</p>
+        <select id="NivelId">
+            <option>Muy Facil</option>
+            <option>Facil</option>
+            <option>Regular</option>
+            <option>Dificil</option>
+            <option>Muy Dificil</option>
+        </select>
+        <p>&nbsp;</p>
+        <p>Ingredientes:</p>
+        <div class="row">
+            <div id="componenteIngrediente">
+            </div>
+        </div>
+        <div class="row">     
+            <div class="col-md-1"><input id="cantIngredienteId" type="text" class="form-control" placeholder="Cantidad"></div>
+            <div class="col-md-2"><input id="unidadIngredienteId" type="text" class="form-control" placeholder="Unidad"></div>
+            <div class="col-md-3"><input id="nombreIngredienteId" type="text" class="form-control" placeholder="Nombre"></div>
+        </div>
+        <p>&nbsp;</p>
+        <button onclick="agregarIngrediente()" style="background-color:#f3c58c" type="button" class="btn btn-default">Agregar Ingrediente</button>
+        <p>&nbsp;</p>
+        <p>Procedimiento:</p>
+        <div class="row">
+            <div id="componenteProcedimiento">
+            </div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="row">
+            <div class="col-md-5"><input id="descripcionPasoId" type="text" class="form-control" placeholder="Descripcion de la receta"></div>
+        </div>
+        <p>&nbsp;</p>
+        <button onclick="agregarProcedimiento()" style="background-color:#f3c58c" type="button" class="btn btn-default">Agregar Procedimiento</button>
+        <p>&nbsp;</p>
+        <div class="row">
+            <div class="col-md-5"><input id="imageRecipeId" type="file" class="form-control" placeholder="Imagen de la Figura"></div>
+        </div>
+        <p>&nbsp;</p>
+        <div class="row">
+            <div class="col-md-1"><button onclick="cancelar()" style="background-color:#ffffff; color:#000000" type="button" class="btn btn-default">Cancelar</button></div>
+            <div class="col-md-1"><button onclick="guardarReceta()" style="background-color:#ffffff; color:#000000" type="submit" class=" btn btn-default">Agregar Receta</button></div>            
+        </div>
+            <hr>
+
+        <div class="row">
+            <div id=".answer">
+            </div>
+        </div>
+
+
+            <!-- Footer -->
+            <footer>
+                <div class="row">
+                    <div class="col-lg-12">
+                        <p>Copyright &copy; EasyKitchen App Team</p>
+                    </div>
+                </div>
+            </footer>
+
+        </>
+    <!-- /.container -->
+    <!-- jQuery Version 1.11.0 -->
+    <script src="js/jquery-1.11.0.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
