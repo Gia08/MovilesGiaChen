@@ -1,9 +1,12 @@
 <?php
 
-$mail= $_POST['email'];
-$name = $POST['name'];
+header('Access-Control-Allow-Origin: *');
+header('Access-Control-Allow-Methods: GET, POST');
 
-require_once 'Funciones.php';
+require_once 'functions.php';
 
+
+
+echo json_encode($result); 
 
 ?>		
