@@ -3,8 +3,8 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 
-//$idRecipe = $_POST('idRecipe');
-$idRecipe = 3;
+$idRecipe = $_POST('idRecipe');
+//$idRecipe = 2;
      mysql_connect("mysql14.000webhost.com", "a1935071_ek", "Moviles2014") or  die("No se pudo conectar: " . mysql_error());
      mysql_select_db("a1935071_ek");
        
@@ -16,7 +16,8 @@ $idRecipe = 3;
   
            $Receta = array();           
            $Receta["name"] = $row["nombre"];
-           $Receta["description"] = $row["duracion"];
+           $Receta["descripcion"] = $row["descripcion"];
+           $Receta["duracion"] = $row["duracion"];
            $Receta["level"] = $row["nivel"];    
            
            $userxrecipe = mysql_query("SELECT user_iduser FROM recipe_has_user where recipe_idrecipe=". $idRecipe);
