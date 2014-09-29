@@ -3,8 +3,8 @@
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST');
 
-$tag = $_POST('tag');
-$tag = "rico";
+$tag= $_POST['tag'];
+//$tag = "rico";
 
      mysql_connect("mysql14.000webhost.com", "a1935071_ek", "Moviles2014") or  die("No se pudo conectar: " . mysql_error());
      mysql_select_db("a1935071_ek");

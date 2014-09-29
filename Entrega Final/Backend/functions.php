@@ -7,7 +7,7 @@ class Functions{
     }
 
     function __destruct() {}
-//1
+
     
    /**
    * Verifica si el usuario existe.
@@ -17,7 +17,7 @@ class Functions{
       $mysqli = new mysqli("mysql14.000webhost.com",  "a1935071_ek", "Moviles2014", "a1935071_ek");
 
             /* check connection */
-//2
+
             if (mysqli_connect_errno()) {
                  printf("Connect failed: %s\n", mysqli_connect_error());
                  exit();
@@ -27,7 +27,7 @@ class Functions{
        $result->bind_param('s', $email);
        $result->execute();
 
-//3    
+   
     if ($result->fetch()){
             return true;//Ya existe la cuenta
        }
@@ -38,7 +38,35 @@ class Functions{
        $result->close();
        $mysqli->close();
    }
-//4
+
+
+   public function recipeExist($idRecipe){
+          
+      $mysqli = new mysqli("mysql14.000webhost.com",  "a1935071_ek", "Moviles2014", "a1935071_ek");
+
+            /* check connection */
+
+            if (mysqli_connect_errno()) {
+                 printf("Connect failed: %s\n", mysqli_connect_error());
+                 exit();
+            }
+       
+       $result= $mysqli->prepare("SELECT idRecipe FROM recipe WHERE idRecipe=?");
+       $result->bind_param('i', $idRecipe);
+       $result->execute();
+   
+    if ($result->fetch()){
+            return true;//Si existe la receta
+       }
+       else{
+            return false; //No existe la receta
+       }
+       
+       $result->close();
+       $mysqli->close();
+   }
+  
+
    public function addUserxRecipe($email, $idRecipe){
           
       $mysqli = new mysqli("mysql14.000webhost.com",  "a1935071_ek", "Moviles2014", "a1935071_ek");
@@ -48,7 +76,7 @@ class Functions{
                  printf("Connect failed: %s\n", mysqli_connect_error());
                  exit();
             }
-//5       
+       
       $result = $mysqli->prepare("SELECT iduser FROM user WHERE email=?");
       $result->bind_param('s', $email);
       $result->execute();
@@ -69,7 +97,6 @@ class Functions{
    }
 
 
-//7
    public function LoginUser($name, $email){
       
       $mysql_host = "mysql14.000webhost.com"; 
@@ -79,7 +106,7 @@ class Functions{
       
             
       if (!$this->userExist($email)){
-//9
+
             $link = new mysqli($mysql_host, $mysql_user, $mysql_password, $mysql_database); 
       
             if (mysqli_connect_errno()) {
@@ -89,7 +116,7 @@ class Functions{
             else{
                  $result= $link->prepare("INSERT INTO user(name, email) VALUES (?,?)");
                  $result->bind_param('ss', $name, $email);
-//10   
+   
                  $result->execute();
                  $result->close();
 
@@ -99,7 +126,7 @@ class Functions{
        }
 
        else{
-//11
+
            return false;
        } 
    }
